@@ -1,0 +1,17 @@
+# ninja log v5
+1	1263	1648960718938132053	CMakeFiles/Proyecto1ED.dir/Inicio.cpp.o	ec5667bad3b617c3
+1	52	1648926997292692208	CMakeFiles/Proyecto1ED.dir/main.cpp.o	5c02e36dfa2058e4
+1871	2044	1648960214869987458	Proyecto1ED	53450f5e65dfe200
+0	56	1648960891378022203	build.ninja	70c81a2bbeacafff
+2	1372	1648960214193981481	CMakeFiles/Proyecto1ED.dir/lista_ortogonal.cpp.o	93c4ae6bb4e2e74a
+2	726	1648960718402120571	CMakeFiles/Proyecto1ED.dir/Partida.cpp.o	9520acdb87146b63
+3	1519	1648960214345982825	CMakeFiles/Proyecto1ED.dir/Aleatorio.cpp.o	2a9076debea96ac6
+8	1562	1648960214389983214	CMakeFiles/Proyecto1ED.dir/Jugar.cpp.o	a49a53557e39f2fc
+0	24	1648960891378022203	build.ninja	70c81a2bbeacafff
+3	576	1648960891958035875	CMakeFiles/Proyecto1ED.dir/Partida.cpp.o	d55b9fd4b2896bd5
+1	810	1648960892194041440	CMakeFiles/Proyecto1ED.dir/Inicio.cpp.o	ec5667bad3b617c3
+3	694	1648961029809376808	CMakeFiles/Proyecto1ED.dir/Jugar.cpp.o	a49a53557e39f2fc
+1	680	1648961073210462110	CMakeFiles/Proyecto1ED.dir/Inicio.cpp.o	ec5667bad3b617c3
+680	820	1648961073350465634	Proyecto1ED	f331c9d1cfc132bb
+1	883	1648961972871796097	CMakeFiles/Proyecto1ED.dir/Inicio.cpp.o	ec5667bad3b617c3
+2	979	1648964475489659867	CMakeFiles/Proyecto1ED.dir/Inicio.cpp.o	ec5667bad3b617c3
