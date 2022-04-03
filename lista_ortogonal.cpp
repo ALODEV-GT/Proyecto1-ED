@@ -7,71 +7,76 @@ using namespace std;
 lista_ortogonal::lista_ortogonal() {
 }
 
-void lista_ortogonal::crear(int n, int m, bool automatico) {
-    int valores[n * m];
-    Aleatorio alt;
-    alt.iniciarValoresTabla(valores, m, n);
-    Nodo *p;
-    Nodo *q;
-    Nodo *r;
-    int i, j, contador = 0;
+void lista_ortogonal::crear(int niveles, int n, int m, bool automatico) {
+    inicio = new struct Nodo;
+    inicio->valor = 0; //----> Eliminar
+    Nodo *actual = inicio;
+    Nodo *fila = inicio;
+    Nodo *aux = inicio;
+    Nodo *columna;
+    Nodo *abajo = inicio;
+    Nodo *nuevo;
+    Nodo *nivel=inicio;
+    //int contador = 0; //---> Eliminar
+    //contador++; //---> Eliminar
+    for (int k = 0; k < niveles; ++k) {
+        for (int j = 0; j < n; ++j) { //n=3 filas   j=0
+            for (int i = 0; i < m - 1; ++i) { //m=3 columnas  i=0
+                columna = new struct Nodo;
+                //columna->valor = contador; //-->Eliminar
+                //contador++; //--->Eliminar
+                actual->siguiente = columna;
+                columna->anterior = actual;
+                if (j > 0) {
+                    aux = aux->siguiente;
+                    aux->inferior = columna;
+                    columna->superior = aux;
+                }
+                if(k > 0){
 
-    for (i = 1; i <= n; i++) {
-        for (j = 1; j <= m; j++) {
-            p = new struct Nodo;
-            if (!automatico) {
-                cout << "Ingrese el dato: ";
-                cin >> p->valor;
-            } else {
-                int nuevo_valor = alt.generarNumAleatorio(n * m, valores);
-                valores[contador] = nuevo_valor;
-                contador++;
-                p->valor = nuevo_valor;
+                }
+                actual = columna;
             }
-            p->siguiente = NULL;
-            p->abajo = NULL;
-            if (j == 1) {
-                p->anterior = NULL;
-                if (head == NULL)
-                    head = p;
-                q = p;
-            } else {
-                p->anterior = q;
-                q->siguiente = p;
-                q = p;
-            }
-            if (i == 1) {
-                p->arriba = NULL;
-                q = p;
-            } else {
-                p->arriba = r;
-                r->abajo = p;
-                r = r->siguiente;
+            if (j != n - 1) {
+                aux = fila;
+                columna = new struct Nodo;
+               // columna->valor = contador; //--->Eliminar
+                //contador++; //--->Eliminar
+                columna->superior = fila;
+                fila->inferior = columna;
+                fila = columna;
+                actual = columna;
             }
         }
-        r = head;
-        while (r->abajo != NULL)
-            r = r->abajo;
+        if (k != niveles - 1) {
+            nuevo = new struct Nodo;
+            abajo->abajo = nuevo;
+            nuevo->arriba = abajo;
+            abajo = nuevo;
+            actual = nuevo;
+        }
     }
+
 }
 
 void lista_ortogonal::desplegar() {
-    Nodo *p;
-    Nodo *q;
+    Nodo *aux1 = inicio;
+    Nodo *aux2 = inicio;
+    Nodo *aux3;
     char separador = ' ';
-    if (head != NULL) {
-        p = head;
-        while (p != NULL) {
-            q = p;
-            while (q != NULL) {
-                printf("%c %-3d ", separador, q->valor);
-                q = q->siguiente;
+    if (inicio != NULL) {
+        while (aux2 != NULL) {
+            while (aux1 != NULL) {
+                printf("%c %-3d", separador, aux1->valor);
+                aux1 = aux1->siguiente;
                 separador = '|';
             }
             separador = ' ';
-            cout << endl;
-            p = p->abajo;
+            cout << "" << endl;
+            aux1 = aux2->inferior;
+            aux2 = aux1;
         }
-    } else
-        cout << "Lista vacia...";
+    } else {
+        cout << "Lista vacia" << endl;
+    }
 }

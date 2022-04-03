@@ -28,7 +28,7 @@ void Inicio::distrubuir(int opcion) {
     switch (opcion) {
         case 1: {
             Jugar jugar;
-            jugar.
+            jugar.iniciar();
             break;
         }
         case 2: {

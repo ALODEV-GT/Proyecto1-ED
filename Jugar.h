@@ -1,10 +1,15 @@
-
-
 #include "Partida.h"
-
-typedef Partida *partida;
 
 class Jugar {
 public:
-    Partida *pedir_datos();
+    Partida *iniciar();
+
+private:
+    void pedir_datos(Partida *);
+
+    void *establecer_preferencias_juego(Partida *);
+
+    void iniciar_motor_juego(Partida* partida);
+
+    void establecer_valores_validos(int *valores_validos);
 };
