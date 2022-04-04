@@ -14,8 +14,8 @@ int Aleatorio::generarNumAleatorio(int limSup, int valores[]) {
     return nuevo_valor;
 }
 
-void Aleatorio::iniciarValoresTabla(int valores[], int m, int n) {
-    for (int i = 0; i < m * n; ++i) {
+void Aleatorio::iniciarValoresTabla(int valores[], int tamanio) {
+    for (int i = 0; i < tamanio; ++i) {
         valores[i] = -1;
     }
 }
