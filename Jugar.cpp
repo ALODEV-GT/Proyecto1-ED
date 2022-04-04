@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Jugar.h"
 #include "lista_ortogonal.h"
+#include "Verificador.h"
 #include <string>
 
 using namespace std;
@@ -9,7 +10,8 @@ Partida *Jugar::iniciar() {
     auto *partida = new Partida();
     pedir_datos(partida);
     establecer_preferencias_juego(partida);
-    iniciar_motor_juego(partida);
+    Preferencias *pref = partida->getPreferencias();
+    iniciar_motor_juego(partida->getPreferencias());
     return partida;
 }
 
@@ -24,30 +26,44 @@ void *Jugar::establecer_preferencias_juego(Partida *partida) {
     int num_niveles;
     int num_filas;
     int num_columnas;
+    bool automatico = true;
+    char automaticoChar;
     cout << "Ingrese el numero de niveles: " << endl;
     cin >> num_niveles;
     cout << "Ingrese el numero de filas: " << endl;
     cin >> num_filas;
     cout << "Ingrese el numero de columnas: " << endl;
     cin >> num_columnas;
-    auto *preferencias = new Preferencias(num_niveles, num_filas, num_columnas);
+    cout << "Llenar automaticamente (s/n): " << endl;
+    cin >> automaticoChar;
+    if (automaticoChar == 'n') {
+        automatico = false;
+    }
+    auto *preferencias = new Preferencias(num_niveles, num_filas, num_columnas, automatico);
     partida->setPreferencias(preferencias);
 }
 
-void Jugar::iniciar_motor_juego(Partida *partida) {
-    int filas = partida->getPreferencias()->getNumFilas();
-    int columnas = partida->getPreferencias()->getNumColumnas();
-    int niveles = partida->getPreferencias()->getNumNiveles();
-    int *valores = new int[filas * columnas];
+void Jugar::iniciar_motor_juego(Preferencias *preferencias) {
     bool ordenado = false;
     bool salir = false;
 
+    int filas = preferencias->getNumFilas();
+    int columnas = preferencias->getNumColumnas();
+    int niveles = preferencias->getNumNiveles();
+    bool automatico = preferencias->isAutomatico();
+    auto *verificador = new Verificador(filas * columnas * niveles);
+    verificador->ingresar_valores(automatico);
+    verificador->ordenar_valores();
+
+    int *valores = verificador->getValoresIniciales();
     lista_ortogonal lista;
-    lista.crear(niveles, filas, columnas, true);
+    lista.crear(niveles, filas, columnas, valores);
     lista.desplegar();
-//    do{
-//
-//    }while(!ordenado && !salir);
+
+
+    do{
+        //movimientos, salir, reiniciar partida
+    }while(!ordenado && !salir);
 }
 
 void establecer_valores_validos(int *valores_validos) {

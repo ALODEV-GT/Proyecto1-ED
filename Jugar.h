@@ -9,7 +9,7 @@ private:
 
     void *establecer_preferencias_juego(Partida *);
 
-    void iniciar_motor_juego(Partida* partida);
+    void iniciar_motor_juego(Preferencias* preferencias);
 
     void establecer_valores_validos(int *valores_validos);
 };

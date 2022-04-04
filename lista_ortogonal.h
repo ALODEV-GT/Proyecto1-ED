@@ -1,5 +1,5 @@
 
-struct Nodo{
+struct Nodo {
     int valor;
     Nodo *siguiente;
     Nodo *anterior;
@@ -13,8 +13,9 @@ class lista_ortogonal {
     Nodo *inicio = NULL;
 public:
     lista_ortogonal();
-    void crear(int niveles, int n, int m, bool automatico);
+
+    void crear(int niveles, int n, int m, int*);
+
     void desplegar();
-    int ingresar_valor(int[],int indice,bool, int tamanio);
 
 };

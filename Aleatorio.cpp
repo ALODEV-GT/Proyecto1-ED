@@ -14,12 +14,6 @@ int Aleatorio::generarNumAleatorio(int limSup, int valores[]) {
     return nuevo_valor;
 }
 
-void Aleatorio::iniciarValoresTabla(int valores[], int tamanio) {
-    for (int i = 0; i < tamanio; ++i) {
-        valores[i] = -1;
-    }
-}
-
 bool Aleatorio::buscarExiste(int valores[], int tamanio, int nuevo_valor) {
     bool existe = false;
     for (int i = 0; i < tamanio; ++i) {

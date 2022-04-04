@@ -7,8 +7,11 @@ using namespace std;
 lista_ortogonal::lista_ortogonal() {
 }
 
-void lista_ortogonal::crear(int niveles, int n, int m, bool automatico) {
+void lista_ortogonal::crear(int niveles, int n, int m, int _valores[]) {
+    int *valores = _valores;
+    int indice = 0;
     inicio = new struct Nodo;
+    inicio->valor = valores[indice++];
     Nodo *actual = inicio;
     Nodo *fila = inicio;
     Nodo *abajo = inicio;
@@ -20,7 +23,7 @@ void lista_ortogonal::crear(int niveles, int n, int m, bool automatico) {
         for (int j = 0; j < n; ++j) {
             for (int i = 0; i < m - 1; ++i) {
                 columna = new struct Nodo;
-                columna->valor = 0;
+                columna->valor = valores[indice++];
                 actual->siguiente = columna;
                 columna->anterior = actual;
                 if (j > 0) {
@@ -38,7 +41,7 @@ void lista_ortogonal::crear(int niveles, int n, int m, bool automatico) {
             if (j != n - 1) {
                 aux = fila;
                 columna = new struct Nodo;
-                columna->valor = 0;
+                columna->valor = valores[indice++];
                 columna->superior = fila;
                 fila->inferior = columna;
                 fila = columna;
@@ -55,7 +58,7 @@ void lista_ortogonal::crear(int niveles, int n, int m, bool automatico) {
         }
         if (k != niveles - 1) {
             columna = new struct Nodo;
-            columna->valor = 0;
+            columna->valor = valores[indice++];
             abajo->abajo = columna;
             fila = columna;
             columna->arriba = abajo;

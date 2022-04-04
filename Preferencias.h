@@ -3,8 +3,9 @@ private:
     int num_niveles;
     int num_filas;
     int num_columnas;
+    bool automatico;
 public:
-    Preferencias(int num_niveles, int num_filas, int num_columnas);
+    Preferencias(int num_niveles, int num_filas, int num_columnas, bool automatico);
 
     int getNumNiveles() const;
 
@@ -17,4 +18,8 @@ public:
     int getNumColumnas() const;
 
     void setNumColumnas(int numColumnas);
+
+    bool isAutomatico() const;
+
+    void setAutomatico(bool automatico);
 };
