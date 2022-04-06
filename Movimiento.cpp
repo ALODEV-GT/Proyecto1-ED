@@ -1,27 +1,51 @@
 #include "Movimiento.h"
 
-void Movimiento::izquierda(Nodo *nodo) {
-
+Nodo *Movimiento::izquierda(Nodo *nodo) {
+    Nodo *anterior = nodo->anterior;
+    int valor = anterior->valor;
+    nodo->valor = valor;
+    anterior->valor = VACIO;
+    return anterior;
 }
 
-void Movimiento::derecha(Nodo *nodo) {
-
+Nodo *Movimiento::derecha(Nodo *nodo) {
+    Nodo *siguiente = nodo->siguiente;
+    int valor = siguiente->valor;
+    nodo->valor = valor;
+    siguiente->valor = VACIO;
+    return siguiente;
 }
 
-void Movimiento::abajo(Nodo *nodo) {
-
+Nodo *Movimiento::superior(Nodo *nodo) {
+    Nodo *superior = nodo->superior;
+    int valor = superior->valor;
+    nodo->valor = valor;
+    superior->valor = VACIO;
+    return superior;
 }
 
-void Movimiento::arriba(Nodo *nodo) {
-
+Nodo *Movimiento::inferior(Nodo *nodo) {
+    Nodo *inferior = nodo->inferior;
+    int valor = inferior->valor;
+    nodo->valor = valor;
+    inferior->valor = VACIO;
+    return inferior;
 }
 
-void Movimiento::superior(Nodo *nodo) {
-
+Nodo *Movimiento::arriba(Nodo *nodo) {
+    Nodo *arriba = nodo->arriba;
+    int valor = arriba->valor;
+    nodo->valor = valor;
+    arriba->valor = VACIO;
+    return arriba;
 }
 
-void Movimiento::inferior(Nodo *nodo) {
-
+Nodo *Movimiento::abajo(Nodo *nodo) {
+    Nodo *abajo = nodo->abajo;
+    int valor = abajo->valor;
+    nodo->valor = valor;
+    abajo->valor = VACIO;
+    return abajo;
 }
 
 int *Movimiento::ver_movimientos(Nodo *nodo) {

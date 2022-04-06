@@ -5,12 +5,14 @@ using std::cin;
 using std::endl;
 
 class Movimiento {
+private:
+    const int VACIO = 10000;
 public:
-    void izquierda(Nodo* nodo);
-    void derecha(Nodo* nodo);
-    void abajo(Nodo* nodo);
-    void arriba(Nodo* nodo);
-    void superior(Nodo* nodo);
-    void inferior(Nodo* nodo);
+    Nodo* izquierda(Nodo* nodo);
+    Nodo* derecha(Nodo* nodo);
+    Nodo* superior(Nodo* nodo);
+    Nodo* inferior(Nodo* nodo);
+    Nodo* arriba(Nodo* nodo);
+    Nodo* abajo(Nodo* nodo);
     int* ver_movimientos(Nodo* nodo);
 };

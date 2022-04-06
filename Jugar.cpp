@@ -59,13 +59,11 @@ void Jugar::iniciar_motor_juego(Preferencias *preferencias) {
     lista.crear(niveles, filas, columnas, valores);
     Nodo *inicio = lista.getInicio();
     Nodo *vacio = lista.getVacio();
-    cout << "Vacio --> " << vacio->valor;
     lista.desplegar();
 
     Movimiento mover;
     int opcion;
     do {
-        //revisar si esta ordenado
         ordenado = verificador->verificar_ordenado(inicio);
         if (!ordenado) {
             int *movimientos_disponibles = mover.ver_movimientos(vacio);
@@ -75,27 +73,27 @@ void Jugar::iniciar_motor_juego(Preferencias *preferencias) {
             } while (!validarOpcion(opcion, movimientos_disponibles));
             switch (opcion) {
                 case 1: {
-                    mover.izquierda(vacio);
+                    vacio = mover.izquierda(vacio);
                 }
                     break;
                 case 2: {
-                    mover.derecha(vacio);
+                    vacio = mover.derecha(vacio);
                 }
                     break;
                 case 3: {
-                    mover.arriba(vacio);
+                    vacio = mover.superior(vacio);
                 }
                     break;
                 case 4: {
-                    mover.abajo(vacio);
+                    vacio = mover.inferior(vacio);
                 }
                     break;
                 case 5: {
-                    mover.superior(vacio);
+                    vacio = mover.arriba(vacio);
                 }
                     break;
                 case 6: {
-                    mover.inferior(vacio);
+                    vacio = mover.abajo(vacio);
                 }
                     break;
                 case 7: {
@@ -107,10 +105,12 @@ void Jugar::iniciar_motor_juego(Preferencias *preferencias) {
                 }
                     break;
             }
-            //realizar movimiento
+            lista.desplegar();
         }
     } while (!ordenado && !salir);
-
+    if (ordenado) {
+        cout << "Felicidades ganaste!!!" << endl;
+    }
 }
 
 void Jugar::opciones_juego() {

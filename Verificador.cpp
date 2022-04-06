@@ -78,8 +78,6 @@ bool Verificador::verificar_ordenado(Nodo* inicio) {
     Nodo *aux2 = inicio;
     Nodo *aux3 = inicio;
     int indice = 0;
-    char separador = ' ';
-    int contadorNiveles = 1;
     if (inicio != NULL) {
         while (aux3 != NULL) {
             while (aux2 != NULL) {
@@ -88,10 +86,7 @@ bool Verificador::verificar_ordenado(Nodo* inicio) {
                         ordenado = false;
                     }
                     aux1 = aux1->siguiente;
-                    separador = '|';
                 }
-                separador = ' ';
-                cout << "" << endl;
                 aux1 = aux2->inferior;
                 aux2 = aux1;
             }
