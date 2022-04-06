@@ -1,6 +1,5 @@
 #include <iostream>
 #include "Jugar.h"
-#include "lista_ortogonal.h"
 #include "Verificador.h"
 #include <string>
 
@@ -61,13 +60,22 @@ void Jugar::iniciar_motor_juego(Preferencias *preferencias) {
     lista.crear(niveles, filas, columnas, valores);
     Nodo *inicio = lista.getInicio();
     Nodo *vacio = lista.getVacio();
-    printf("El valor del nodo inicio es: %d\n", inicio->valor);
-    printf("El valor del nodo vacio es: %d\n", vacio->valor);
     lista.desplegar();
+    bool orden = verificador->verificar_ordenado(inicio);
+    if (orden){
+        cout<<"Esta ordenado"<<endl;
+    }else{
+        cout<<"Esta desordenado"<<endl;
+    }
+    //do {
+        //revisar si esta ordenado
+            //Envio nodo inicio
+            //Recorro lista ortogonal comparando con el arreglo ordenado
+            //Si todon coinciden devuelvo true
 
-    do {
-        //movimientos, salir, reiniciar partida
-    } while (!ordenado && !salir);
+        //mostrar movimientos disponibles u opciones para sailir, repetir.
+        //realizar movimiento
+    //} while (!ordenado && !salir);
 }
 
 void establecer_valores_validos(int *valores_validos) {

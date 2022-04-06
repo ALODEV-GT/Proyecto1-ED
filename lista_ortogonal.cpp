@@ -8,6 +8,7 @@ lista_ortogonal::lista_ortogonal() {
 }
 
 void lista_ortogonal::crear(int niveles, int n, int m, int _valores[]) {
+    const int VACIO = 10000;
     int *valores = _valores;
     int indice = 0;
     int valor;
@@ -26,7 +27,7 @@ void lista_ortogonal::crear(int niveles, int n, int m, int _valores[]) {
                 columna = new struct Nodo;
                 valor = valores[indice++];
                 columna->valor = valor;
-                if (valor == 0) { vacio = columna; }
+                if (valor == VACIO) { vacio = columna; }
                 actual->siguiente = columna;
                 columna->anterior = actual;
                 if (j > 0) {
@@ -46,7 +47,7 @@ void lista_ortogonal::crear(int niveles, int n, int m, int _valores[]) {
                 columna = new struct Nodo;
                 valor = valores[indice++];
                 columna->valor = valor;
-                if (valor == 0) { vacio = columna; }
+                if (valor == VACIO) { vacio = columna; }
                 columna->superior = fila;
                 fila->inferior = columna;
                 fila = columna;
@@ -65,7 +66,7 @@ void lista_ortogonal::crear(int niveles, int n, int m, int _valores[]) {
             columna = new struct Nodo;
             valor = valores[indice++];
             columna->valor = valor;
-            if (valor == 0) { vacio = columna; }
+            if (valor == VACIO) { vacio = columna; }
             abajo->abajo = columna;
             fila = columna;
             columna->arriba = abajo;
@@ -78,6 +79,7 @@ void lista_ortogonal::crear(int niveles, int n, int m, int _valores[]) {
 }
 
 void lista_ortogonal::desplegar() {
+    const int VACIO = 10000;
     Nodo *aux1 = inicio;
     Nodo *aux2 = inicio;
     Nodo *aux3 = inicio;
@@ -89,7 +91,7 @@ void lista_ortogonal::desplegar() {
             cout << "-----------------" << endl;
             while (aux2 != NULL) {
                 while (aux1 != NULL) {
-                    if (aux1->valor == 0) {
+                    if (aux1->valor == VACIO) {
                         printf("%c %3c ", separador, 'X');
                     } else {
                         printf("%c %3d ", separador, aux1->valor);
