@@ -98,7 +98,7 @@ void Jugar::iniciar_motor_juego(Preferencias *preferencias) {
                 }
                     break;
                 case 7: {
-                    reiniciar();
+                    vacio = verificador->reiniciar(inicio);
                 }
                     break;
                 case 8: {
@@ -140,10 +140,5 @@ bool Jugar::validarOpcion(int opcion, int *movimientos_disponibles) {
     }
     return valido;
 }
-
-bool Jugar::reiniciar() {
-    return false;
-}
-
 
 

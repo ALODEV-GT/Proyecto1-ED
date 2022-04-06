@@ -17,6 +17,4 @@ private:
 
     bool validarOpcion(int, int*);
 
-    bool reiniciar();
-
 };

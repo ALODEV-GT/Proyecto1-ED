@@ -28,4 +28,6 @@ public:
     void ordenar_valores();
 
     bool verificar_ordenado(Nodo*);
+
+    Nodo* reiniciar(Nodo*);
 };

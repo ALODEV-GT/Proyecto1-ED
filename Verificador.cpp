@@ -51,7 +51,7 @@ void Verificador::ingresar_valores(bool automatico) {
                 if (!invalido) {
                     if (valor < 0 || valor > tamanio_arreglo - 1 && !esCero) {
                         printf("Solo puedes ingresar valores de 0 a %d ", tamanio_arreglo - 1);
-                        invalido=true;
+                        invalido = true;
                     } else {
                         valores_iniciales[i] = valor;
                     }
@@ -112,4 +112,37 @@ bool Verificador::verificar_ordenado(Nodo *inicio) {
     }
 
     return ordenado;
+}
+
+Nodo *Verificador::reiniciar(Nodo *inicio) {
+    bool ordenado = true;
+    const int VACIO = 10000;
+    Nodo *vacio = nullptr;
+    Nodo *aux1 = inicio;
+    Nodo *aux2 = inicio;
+    Nodo *aux3 = inicio;
+    int valor;
+    int indice = 0;
+    if (inicio != NULL) {
+        while (aux3 != NULL) {
+            while (aux2 != NULL) {
+                while (aux1 != NULL) {
+                    valor = valores_iniciales[indice++];
+                    aux1->valor = valor;
+                    if (valor == VACIO) {
+                        vacio = aux1;
+                    }
+                    aux1 = aux1->siguiente;
+                }
+                aux1 = aux2->inferior;
+                aux2 = aux1;
+            }
+            aux1 = aux3->abajo;
+            aux2 = aux1;
+            aux3 = aux1;
+        }
+    } else {
+        cout << "Lista vacia" << endl;
+    }
+    return vacio;
 }
