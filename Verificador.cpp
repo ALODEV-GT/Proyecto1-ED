@@ -19,31 +19,44 @@ Verificador::Verificador(int tamanio) {
 
 void Verificador::ingresar_valores(bool automatico) {
     Aleatorio aleatorio;
+    bool esCero = false;
     const int VACIO = 10000;
     int valor;
     bool invalido = false;
     for (int i = 0; i < tamanio_arreglo; ++i) {
         if (automatico) {
             valor = aleatorio.generarNumAleatorio(tamanio_arreglo, valores_iniciales);
-            if(valor == 0){
+            if (valor == 0) {
                 valor = VACIO;
+                //Evita que ingrese mas de un vacio es decir 10000
+                while (aleatorio.buscarExiste(valores_iniciales, tamanio_arreglo, valor)) {
+                    valor = aleatorio.generarNumAleatorio(tamanio_arreglo, valores_iniciales);
+                    if (valor == 0) {
+                        valor = VACIO;
+                    }
+                }
             }
             valores_iniciales[i] = valor;
         } else {
             do {
                 printf("\nIngrese el valor de la casilla %d: ", (i + 1));
                 cin >> valor;
+                if (valor == 0) {
+                    esCero = true;
+                    valor = VACIO;
+                } else {
+                    esCero = false;
+                }
                 invalido = aleatorio.buscarExiste(valores_iniciales, tamanio_arreglo, valor);
                 if (!invalido) {
-                    if (valor < 0 || valor > tamanio_arreglo - 1) {
+                    if (valor < 0 || valor > tamanio_arreglo - 1 && !esCero) {
                         printf("Solo puedes ingresar valores de 0 a %d ", tamanio_arreglo - 1);
+                        invalido=true;
                     } else {
-                        if (valor == 0){
-                            valor = VACIO;
-                        }
                         valores_iniciales[i] = valor;
                     }
                 } else {
+                    if (valor == VACIO) { valor = 0; }
                     printf("El valor %d ya existe, vuelva a intentarlo ", valor);
                 }
             } while (invalido);
@@ -72,7 +85,7 @@ void Verificador::bubbleSort(int arr[], int n) {
                 swap(&arr[j], &arr[j + 1]);
 }
 
-bool Verificador::verificar_ordenado(Nodo* inicio) {
+bool Verificador::verificar_ordenado(Nodo *inicio) {
     bool ordenado = true;
     Nodo *aux1 = inicio;
     Nodo *aux2 = inicio;
