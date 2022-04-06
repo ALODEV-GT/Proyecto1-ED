@@ -1,4 +1,6 @@
 #include "Partida.h"
+#include "Movimiento.h"
+#include "Verificador.h"
 
 class Jugar {
 public:
@@ -11,5 +13,10 @@ private:
 
     void iniciar_motor_juego(Preferencias* preferencias);
 
-    void establecer_valores_validos(int *valores_validos);
+    void opciones_juego();
+
+    bool validarOpcion(int, int*);
+
+    bool reiniciar();
+
 };

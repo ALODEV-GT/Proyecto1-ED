@@ -1,3 +1,5 @@
+#ifndef PROYECTO1ED_LISTA_ORTOGONAL_H
+#define PROYECTO1ED_LISTA_ORTOGONAL_H
 #include <cstddef>
 struct Nodo {
     int valor;
@@ -23,3 +25,5 @@ public:
 
     Nodo* getVacio();
 };
+
+#endif //PROYECTO1ED_LISTA_ORTOGONAL_H

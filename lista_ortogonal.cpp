@@ -1,6 +1,5 @@
 #include <iostream>
 #include "lista_ortogonal.h"
-#include "Aleatorio.h"
 
 using namespace std;
 

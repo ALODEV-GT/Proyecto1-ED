@@ -1,4 +1,4 @@
-
+#include "Jugar.h"
 class Inicio {
 private:
     void menu();

@@ -1,6 +1,6 @@
+#include <iostream>
 #include "Aleatorio.h"
 #include "lista_ortogonal.h"
-#include <iostream>
 
 using std::cin;
 using std::cout;

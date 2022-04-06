@@ -1,7 +1,6 @@
 #include <iostream>
-#include "Jugar.h"
-#include "Verificador.h"
 #include <string>
+#include "Jugar.h"
 
 using namespace std;
 
@@ -60,26 +59,89 @@ void Jugar::iniciar_motor_juego(Preferencias *preferencias) {
     lista.crear(niveles, filas, columnas, valores);
     Nodo *inicio = lista.getInicio();
     Nodo *vacio = lista.getVacio();
+    cout << "Vacio --> " << vacio->valor;
     lista.desplegar();
-    bool orden = verificador->verificar_ordenado(inicio);
-    if (orden){
-        cout<<"Esta ordenado"<<endl;
-    }else{
-        cout<<"Esta desordenado"<<endl;
-    }
-    //do {
-        //revisar si esta ordenado
-            //Envio nodo inicio
-            //Recorro lista ortogonal comparando con el arreglo ordenado
-            //Si todon coinciden devuelvo true
 
-        //mostrar movimientos disponibles u opciones para sailir, repetir.
-        //realizar movimiento
-    //} while (!ordenado && !salir);
+    Movimiento mover;
+    int opcion;
+    do {
+        //revisar si esta ordenado
+        ordenado = verificador->verificar_ordenado(inicio);
+        if (!ordenado) {
+            int *movimientos_disponibles = mover.ver_movimientos(vacio);
+            opciones_juego();
+            do {
+                cin >> opcion;
+            } while (!validarOpcion(opcion, movimientos_disponibles));
+            switch (opcion) {
+                case 1: {
+                    mover.izquierda(vacio);
+                }
+                    break;
+                case 2: {
+                    mover.derecha(vacio);
+                }
+                    break;
+                case 3: {
+                    mover.arriba(vacio);
+                }
+                    break;
+                case 4: {
+                    mover.abajo(vacio);
+                }
+                    break;
+                case 5: {
+                    mover.superior(vacio);
+                }
+                    break;
+                case 6: {
+                    mover.inferior(vacio);
+                }
+                    break;
+                case 7: {
+                    reiniciar();
+                }
+                    break;
+                case 8: {
+                    salir = true;
+                }
+                    break;
+            }
+            //realizar movimiento
+        }
+    } while (!ordenado && !salir);
+
 }
 
-void establecer_valores_validos(int *valores_validos) {
+void Jugar::opciones_juego() {
+    cout << "7. Reiniciar" << endl;
+    cout << "8. Salir" << endl;
+    cout << "Elija una opcion: " << endl;
+}
 
+bool Jugar::validarOpcion(int opcion, int *movimientos_disponibles) {
+    bool valido = false;
+    if (opcion >= 1 && opcion <= 8) { //Rango de opciones
+        for (int i = 0; i < 6; ++i) { // 6 = movimientos
+            if (opcion == movimientos_disponibles[i]) {
+                valido = true;
+                break;
+            }
+        }
+        if (!valido) {
+            if (opcion == 7 || opcion == 8) { //Validando la opcion repetir y salir.
+                valido = true;
+            }
+        }
+    }
+    if (!valido) {
+        cout << "Opcion invalida, vuelve a intentarlo: " << endl;
+    }
+    return valido;
+}
+
+bool Jugar::reiniciar() {
+    return false;
 }
 
 

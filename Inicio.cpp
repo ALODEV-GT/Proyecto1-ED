@@ -1,7 +1,5 @@
 #include <iostream>
 #include "Inicio.h"
-#include "lista_ortogonal.h"
-#include "Jugar.h"
 
 using std::endl;
 using std::cout;
