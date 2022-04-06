@@ -41,6 +41,7 @@ void *Jugar::establecer_preferencias_juego(Partida *partida) {
     }
     auto *preferencias = new Preferencias(num_niveles, num_filas, num_columnas, automatico);
     partida->setPreferencias(preferencias);
+    return nullptr;
 }
 
 void Jugar::iniciar_motor_juego(Preferencias *preferencias) {
@@ -58,12 +59,15 @@ void Jugar::iniciar_motor_juego(Preferencias *preferencias) {
     int *valores = verificador->getValoresIniciales();
     lista_ortogonal lista;
     lista.crear(niveles, filas, columnas, valores);
+    Nodo *inicio = lista.getInicio();
+    Nodo *vacio = lista.getVacio();
+    printf("El valor del nodo inicio es: %d\n", inicio->valor);
+    printf("El valor del nodo vacio es: %d\n", vacio->valor);
     lista.desplegar();
 
-
-    do{
+    do {
         //movimientos, salir, reiniciar partida
-    }while(!ordenado && !salir);
+    } while (!ordenado && !salir);
 }
 
 void establecer_valores_validos(int *valores_validos) {

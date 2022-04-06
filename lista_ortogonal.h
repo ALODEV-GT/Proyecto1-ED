@@ -11,6 +11,7 @@ struct Nodo {
 
 class lista_ortogonal {
     Nodo *inicio = NULL;
+    Nodo *vacio = NULL;
 public:
     lista_ortogonal();
 
@@ -18,4 +19,7 @@ public:
 
     void desplegar();
 
+    Nodo* getInicio();
+
+    Nodo* getVacio();
 };

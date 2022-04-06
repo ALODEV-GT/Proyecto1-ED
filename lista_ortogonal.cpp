@@ -10,6 +10,7 @@ lista_ortogonal::lista_ortogonal() {
 void lista_ortogonal::crear(int niveles, int n, int m, int _valores[]) {
     int *valores = _valores;
     int indice = 0;
+    int valor;
     inicio = new struct Nodo;
     inicio->valor = valores[indice++];
     Nodo *actual = inicio;
@@ -23,7 +24,9 @@ void lista_ortogonal::crear(int niveles, int n, int m, int _valores[]) {
         for (int j = 0; j < n; ++j) {
             for (int i = 0; i < m - 1; ++i) {
                 columna = new struct Nodo;
-                columna->valor = valores[indice++];
+                valor = valores[indice++];
+                columna->valor = valor;
+                if (valor == 0) { vacio = columna; }
                 actual->siguiente = columna;
                 columna->anterior = actual;
                 if (j > 0) {
@@ -41,7 +44,9 @@ void lista_ortogonal::crear(int niveles, int n, int m, int _valores[]) {
             if (j != n - 1) {
                 aux = fila;
                 columna = new struct Nodo;
-                columna->valor = valores[indice++];
+                valor = valores[indice++];
+                columna->valor = valor;
+                if (valor == 0) { vacio = columna; }
                 columna->superior = fila;
                 fila->inferior = columna;
                 fila = columna;
@@ -58,7 +63,9 @@ void lista_ortogonal::crear(int niveles, int n, int m, int _valores[]) {
         }
         if (k != niveles - 1) {
             columna = new struct Nodo;
-            columna->valor = valores[indice++];
+            valor = valores[indice++];
+            columna->valor = valor;
+            if (valor == 0) { vacio = columna; }
             abajo->abajo = columna;
             fila = columna;
             columna->arriba = abajo;
@@ -82,7 +89,11 @@ void lista_ortogonal::desplegar() {
             cout << "-----------------" << endl;
             while (aux2 != NULL) {
                 while (aux1 != NULL) {
-                    printf("%c %-3d", separador, aux1->valor);
+                    if (aux1->valor == 0) {
+                        printf("%c %3c ", separador, 'X');
+                    } else {
+                        printf("%c %3d ", separador, aux1->valor);
+                    }
                     aux1 = aux1->siguiente;
                     separador = '|';
                 }
@@ -98,4 +109,12 @@ void lista_ortogonal::desplegar() {
     } else {
         cout << "Lista vacia" << endl;
     }
+}
+
+Nodo *lista_ortogonal::getInicio() {
+    return inicio;
+}
+
+Nodo *lista_ortogonal::getVacio() {
+    return vacio;
 }
