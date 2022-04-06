@@ -6,22 +6,19 @@ using std::string;
 class Partida {
 private:
     string nombre_jugador;
-    int num_puntos;
-    int tiempo_partida;
-    int pasos_realizados;
+    int num_puntos = 0;
+    int tiempo_partida = 0;
+    int pasos_realizados = 0;
+    Preferencias *preferencias;
 public:
     int getPasosRealizados() const;
 
     void setPasosRealizados(int pasosRealizados);
 
-private:
-    Preferencias* preferencias;
-public:
     Preferencias *getPreferencias() const;
 
     void setPreferencias(Preferencias *preferencias);
 
-public:
     Partida();
 
     const string &getNombreJugador() const;

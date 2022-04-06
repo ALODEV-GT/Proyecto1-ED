@@ -9,7 +9,7 @@ Partida *Jugar::iniciar() {
     pedir_datos(partida);
     establecer_preferencias_juego(partida);
     Preferencias *pref = partida->getPreferencias();
-    iniciar_motor_juego(partida->getPreferencias());
+    iniciar_motor_juego(partida);
     return partida;
 }
 
@@ -42,10 +42,10 @@ void *Jugar::establecer_preferencias_juego(Partida *partida) {
     return nullptr;
 }
 
-void Jugar::iniciar_motor_juego(Preferencias *preferencias) {
+void Jugar::iniciar_motor_juego(Partida *partida) {
     bool ordenado = false;
     bool salir = false;
-
+    Preferencias *preferencias = partida->getPreferencias();
     int filas = preferencias->getNumFilas();
     int columnas = preferencias->getNumColumnas();
     int niveles = preferencias->getNumNiveles();
@@ -99,6 +99,7 @@ void Jugar::iniciar_motor_juego(Preferencias *preferencias) {
                     break;
                 case 7: {
                     vacio = verificador->reiniciar(inicio);
+                    mover.reiniciar_contador_pasos();
                 }
                     break;
                 case 8: {
@@ -112,6 +113,11 @@ void Jugar::iniciar_motor_juego(Preferencias *preferencias) {
     if (ordenado) {
         cout << "Felicidades ganaste!!!" << endl;
     }
+    partida->setNumPuntos(verificador->get_contador_puntos());
+    partida->setPasosRealizados(mover.get_contador_pasos());
+    cout << "Pasos realizados: " << partida->getPasosRealizados();
+    cout << "Puntaje total: " << partida->getNumPuntos();
+
 }
 
 void Jugar::opciones_juego() {

@@ -5,6 +5,7 @@ Nodo *Movimiento::izquierda(Nodo *nodo) {
     int valor = anterior->valor;
     nodo->valor = valor;
     anterior->valor = VACIO;
+    contador_pasos++;
     return anterior;
 }
 
@@ -13,6 +14,7 @@ Nodo *Movimiento::derecha(Nodo *nodo) {
     int valor = siguiente->valor;
     nodo->valor = valor;
     siguiente->valor = VACIO;
+    contador_pasos++;
     return siguiente;
 }
 
@@ -21,6 +23,7 @@ Nodo *Movimiento::superior(Nodo *nodo) {
     int valor = superior->valor;
     nodo->valor = valor;
     superior->valor = VACIO;
+    contador_pasos++;
     return superior;
 }
 
@@ -29,6 +32,7 @@ Nodo *Movimiento::inferior(Nodo *nodo) {
     int valor = inferior->valor;
     nodo->valor = valor;
     inferior->valor = VACIO;
+    contador_pasos++;
     return inferior;
 }
 
@@ -37,6 +41,7 @@ Nodo *Movimiento::arriba(Nodo *nodo) {
     int valor = arriba->valor;
     nodo->valor = valor;
     arriba->valor = VACIO;
+    contador_pasos++;
     return arriba;
 }
 
@@ -45,6 +50,7 @@ Nodo *Movimiento::abajo(Nodo *nodo) {
     int valor = abajo->valor;
     nodo->valor = valor;
     abajo->valor = VACIO;
+    contador_pasos++;
     return abajo;
 }
 
@@ -55,34 +61,36 @@ int *Movimiento::ver_movimientos(Nodo *nodo) {
     }
     if (nodo->anterior != NULL) {
         cout << "3. Mover a la derecha" << endl;
-        cout << nodo->anterior->valor << endl;
         movimentos_disponibles[0] = 3;
     }
     if (nodo->siguiente != NULL) {
         cout << "1. Mover a la izquierda" << endl;
-        cout << nodo->siguiente->valor << endl;
         movimentos_disponibles[1] = 1;
     }
     if (nodo->superior != NULL) {
         cout << "2. Mover hacia abajo" << endl;
-        cout << nodo->superior->valor << endl;
         movimentos_disponibles[2] = 2;
     }
     if (nodo->inferior != NULL) {
         cout << "5. Mover hacia arriba" << endl;
-        cout << nodo->inferior->valor << endl;
         movimentos_disponibles[3] = 5;
     }
     if (nodo->arriba != NULL) {
         cout << "6. Mover espacio al nivel de arriba" << endl;
-        cout << nodo->arriba->valor << endl;
         movimentos_disponibles[4] = 6;
     }
     if (nodo->abajo != NULL) {
         cout << "4. Mover espacio al nivel de abajo" << endl;
-        cout << nodo->abajo->valor << endl;
         movimentos_disponibles[5] = 4;
     }
     return movimentos_disponibles;
+}
+
+int Movimiento::get_contador_pasos() {
+    return contador_pasos;
+}
+
+void Movimiento::reiniciar_contador_pasos() {
+    contador_pasos = 0;
 }
 

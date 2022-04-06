@@ -11,7 +11,7 @@ private:
 
     void *establecer_preferencias_juego(Partida *);
 
-    void iniciar_motor_juego(Preferencias* preferencias);
+    void iniciar_motor_juego(Partida* partida);
 
     void opciones_juego();
 

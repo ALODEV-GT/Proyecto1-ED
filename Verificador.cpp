@@ -86,6 +86,7 @@ void Verificador::bubbleSort(int arr[], int n) {
 }
 
 bool Verificador::verificar_ordenado(Nodo *inicio) {
+    contador_puntos = 0;
     bool ordenado = true;
     Nodo *aux1 = inicio;
     Nodo *aux2 = inicio;
@@ -97,6 +98,8 @@ bool Verificador::verificar_ordenado(Nodo *inicio) {
                 while (aux1 != NULL) {
                     if (aux1->valor != valores_ordenados[indice++]) {
                         ordenado = false;
+                    }else{
+                        contador_puntos+=2;
                     }
                     aux1 = aux1->siguiente;
                 }
@@ -110,7 +113,6 @@ bool Verificador::verificar_ordenado(Nodo *inicio) {
     } else {
         cout << "Lista vacia" << endl;
     }
-
     return ordenado;
 }
 
@@ -145,4 +147,8 @@ Nodo *Verificador::reiniciar(Nodo *inicio) {
         cout << "Lista vacia" << endl;
     }
     return vacio;
+}
+
+int Verificador::get_contador_puntos() {
+    return contador_puntos;
 }

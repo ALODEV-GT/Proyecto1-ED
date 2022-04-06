@@ -11,6 +11,7 @@ private:
     int tamanio_arreglo;
     int *valores_iniciales;
     int *valores_ordenados;
+    int contador_puntos = 0;
 
     void iniciarValoresTabla();
 
@@ -30,4 +31,6 @@ public:
     bool verificar_ordenado(Nodo*);
 
     Nodo* reiniciar(Nodo*);
+
+    int get_contador_puntos();
 };
