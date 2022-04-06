@@ -55,6 +55,9 @@ void Jugar::iniciar_motor_juego(Preferencias *preferencias) {
     verificador->ordenar_valores();
 
     int *valores = verificador->getValoresIniciales();
+    for (int i = 0; i < columnas * niveles * filas; i++) {
+        printf("-->%d \n", valores[i]);
+    }
     lista_ortogonal lista;
     lista.crear(niveles, filas, columnas, valores);
     Nodo *inicio = lista.getInicio();
@@ -76,23 +79,23 @@ void Jugar::iniciar_motor_juego(Preferencias *preferencias) {
                     vacio = mover.izquierda(vacio);
                 }
                     break;
-                case 2: {
+                case 3: {
                     vacio = mover.derecha(vacio);
                 }
                     break;
-                case 3: {
+                case 5: {
                     vacio = mover.superior(vacio);
                 }
                     break;
-                case 4: {
+                case 2: {
                     vacio = mover.inferior(vacio);
                 }
                     break;
-                case 5: {
+                case 6: {
                     vacio = mover.arriba(vacio);
                 }
                     break;
-                case 6: {
+                case 4: {
                     vacio = mover.abajo(vacio);
                 }
                     break;
