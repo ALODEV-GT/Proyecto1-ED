@@ -98,8 +98,8 @@ bool Verificador::verificar_ordenado(Nodo *inicio) {
                 while (aux1 != NULL) {
                     if (aux1->valor != valores_ordenados[indice++]) {
                         ordenado = false;
-                    }else{
-                        contador_puntos+=2;
+                    } else {
+                        contador_puntos += 2;
                     }
                     aux1 = aux1->siguiente;
                 }
@@ -151,4 +151,8 @@ Nodo *Verificador::reiniciar(Nodo *inicio) {
 
 int Verificador::get_contador_puntos() {
     return contador_puntos;
+}
+
+Verificador::~Verificador() {
+
 }

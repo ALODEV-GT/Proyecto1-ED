@@ -38,3 +38,7 @@ bool Preferencias::isAutomatico() const {
 void Preferencias::setAutomatico(bool automatico) {
     Preferencias::automatico = automatico;
 }
+
+Preferencias::~Preferencias() {
+
+}

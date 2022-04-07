@@ -23,3 +23,7 @@ bool Aleatorio::buscarExiste(int valores[], int tamanio, int nuevo_valor) {
     }
     return existe;
 }
+
+Aleatorio::~Aleatorio() {
+
+}

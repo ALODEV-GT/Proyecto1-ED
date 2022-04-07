@@ -25,6 +25,8 @@ public:
     bool isAutomatico() const;
 
     void setAutomatico(bool automatico);
+
+    ~Preferencias();
 };
 
 #endif //PROYECTO1ED_PREFERENCIAS_H

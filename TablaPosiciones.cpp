@@ -21,7 +21,7 @@ void TablaPosiciones::agregar(Partida *partida) {
 void TablaPosiciones::desplegar() {
     NodoPartida *nodo = primero;
     cout << "-------------TABLA DE POSICIONES-------------" << endl;
-    printf(" %-21s %-9s %-s \n", "Nombre del jugador", "Punteo", "Tiempo de partida");
+    printf(" %-21s %-9s %-s \n", "Nombre del jugador", "Punteo", "Tiempo de partida (s)");
     if (nodo != NULL) {
         do {
             char *nombre_jugador = nodo->valor->getNombreJugador();
@@ -54,5 +54,9 @@ void TablaPosiciones::ordenar() {
         nodo = nodo_indice;
         nodo_mayor = nodo_indice;
     }
+}
+
+TablaPosiciones::~TablaPosiciones() {
+
 }
 

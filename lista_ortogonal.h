@@ -1,6 +1,8 @@
 #ifndef PROYECTO1ED_LISTA_ORTOGONAL_H
 #define PROYECTO1ED_LISTA_ORTOGONAL_H
+
 #include <cstddef>
+
 struct Nodo {
     int valor;
     Nodo *siguiente;
@@ -17,13 +19,15 @@ class lista_ortogonal {
 public:
     lista_ortogonal();
 
-    void crear(int niveles, int n, int m, int*);
+    void crear(int niveles, int n, int m, int *);
 
     void desplegar();
 
-    Nodo* getInicio();
+    Nodo *getInicio();
 
-    Nodo* getVacio();
+    Nodo *getVacio();
+
+    ~lista_ortogonal();
 };
 
 #endif //PROYECTO1ED_LISTA_ORTOGONAL_H

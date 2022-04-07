@@ -49,3 +49,7 @@ void Partida::setPasosRealizados(int pasosRealizados) {
     pasos_realizados = pasosRealizados;
 }
 
+Partida::~Partida() {
+
+}
+

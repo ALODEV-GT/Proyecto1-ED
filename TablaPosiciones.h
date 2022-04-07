@@ -18,6 +18,8 @@ public:
     void desplegar();
 
     void ordenar();
+
+    ~TablaPosiciones();
 };
 
 

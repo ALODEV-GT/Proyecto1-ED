@@ -7,6 +7,7 @@ class Jugar {
 public:
     void *iniciar(TablaPosiciones *tabla);
 
+    ~Jugar();
 private:
     void pedir_datos(Partida *);
 

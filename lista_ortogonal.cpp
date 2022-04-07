@@ -119,3 +119,7 @@ Nodo *lista_ortogonal::getInicio() {
 Nodo *lista_ortogonal::getVacio() {
     return vacio;
 }
+
+lista_ortogonal::~lista_ortogonal() {
+
+}

@@ -43,3 +43,7 @@ void Inicio::distrubuir(int opcion, TablaPosiciones *tabla) {
 
 }
 
+Inicio::~Inicio() {
+
+}
+

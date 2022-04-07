@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <chrono>
 #include "Jugar.h"
 
 using namespace std;
@@ -42,6 +43,8 @@ void *Jugar::establecer_preferencias_juego(Partida *partida) {
 }
 
 void Jugar::iniciar_motor_juego(Partida *partida, TablaPosiciones *tabla) {
+    auto begin = std::chrono::high_resolution_clock::now();
+
     bool ordenado = false;
     bool salir = false;
     Preferencias *preferencias = partida->getPreferencias();
@@ -112,6 +115,9 @@ void Jugar::iniciar_motor_juego(Partida *partida, TablaPosiciones *tabla) {
     if (ordenado) {
         cout << "Felicidades ganaste!!!" << endl;
     }
+    auto end = std::chrono::high_resolution_clock::now();
+    auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+    partida->setTiempoPartida(elapsed.count() * 1e-9);
     partida->setNumPuntos(verificador->get_contador_puntos());
     partida->setPasosRealizados(mover.get_contador_pasos());
     tabla->agregar(partida);
@@ -146,6 +152,10 @@ bool Jugar::validarOpcion(int opcion, int *movimientos_disponibles) {
         cout << "Opcion invalida, vuelve a intentarlo: " << endl;
     }
     return valido;
+}
+
+Jugar::~Jugar() {
+
 }
 
 

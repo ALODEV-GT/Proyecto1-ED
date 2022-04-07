@@ -28,9 +28,11 @@ public:
 
     void ordenar_valores();
 
-    bool verificar_ordenado(Nodo*);
+    bool verificar_ordenado(Nodo *);
 
-    Nodo* reiniciar(Nodo*);
+    Nodo *reiniciar(Nodo *);
 
     int get_contador_puntos();
+
+    ~Verificador();
 };

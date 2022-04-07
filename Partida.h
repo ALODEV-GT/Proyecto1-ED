@@ -35,6 +35,8 @@ public:
     int getTiempoPartida() const;
 
     void setTiempoPartida(int tiempoPartida);
+
+    ~Partida();
 };
 
 #endif //PROYECTO1ED_PARTIDA_H

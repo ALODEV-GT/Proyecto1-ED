@@ -94,3 +94,7 @@ void Movimiento::reiniciar_contador_pasos() {
     contador_pasos = 0;
 }
 
+Movimiento::~Movimiento() {
+
+}
+
