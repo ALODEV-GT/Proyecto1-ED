@@ -62,7 +62,6 @@ void Jugar::iniciar_motor_juego(Partida *partida, TablaPosiciones *tabla) {
     Nodo *inicio = lista.getInicio();
     Nodo *vacio = lista.getVacio();
     lista.desplegar();
-
     Movimiento mover;
     int opcion;
     do {

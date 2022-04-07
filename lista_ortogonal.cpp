@@ -10,9 +10,10 @@ void lista_ortogonal::crear(int niveles, int n, int m, int _valores[]) {
     const int VACIO = 10000;
     int *valores = _valores;
     int indice = 0;
-    int valor;
+    int valor = valores[indice++];
     inicio = new struct Nodo;
-    inicio->valor = valores[indice++];
+    if (valor == VACIO) { vacio = inicio; }
+    inicio->valor = valor;
     Nodo *actual = inicio;
     Nodo *fila = inicio;
     Nodo *abajo = inicio;
