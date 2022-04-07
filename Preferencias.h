@@ -1,3 +1,6 @@
+#ifndef PROYECTO1ED_PREFERENCIAS_H
+#define PROYECTO1ED_PREFERENCIAS_H
+
 class Preferencias {
 private:
     int num_niveles;
@@ -23,3 +26,5 @@ public:
 
     void setAutomatico(bool automatico);
 };
+
+#endif //PROYECTO1ED_PREFERENCIAS_H

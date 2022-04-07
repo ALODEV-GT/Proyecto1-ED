@@ -1,11 +1,16 @@
+#include <cstring>
 #include "Partida.h"
 
 Partida::Partida() {
 
 }
 
-const string &Partida::getNombreJugador() const {
-    return nombre_jugador;
+char *Partida::getNombreJugador() {
+    char *conv_char = new char[nombre_jugador.length()];
+    for (int i = 0; i < sizeof(conv_char); i++) {
+        conv_char[i] = nombre_jugador[i];
+    }
+    return conv_char;
 }
 
 void Partida::setNombreJugador(const string &nombreJugador) {
@@ -43,3 +48,4 @@ int Partida::getPasosRealizados() const {
 void Partida::setPasosRealizados(int pasosRealizados) {
     pasos_realizados = pasosRealizados;
 }
+

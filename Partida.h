@@ -1,3 +1,6 @@
+#ifndef PROYECTO1ED_PARTIDA_H
+#define PROYECTO1ED_PARTIDA_H
+
 #include <string>
 #include "Preferencias.h"
 
@@ -5,7 +8,7 @@ using std::string;
 
 class Partida {
 private:
-    string nombre_jugador;
+    string nombre_jugador = "";
     int num_puntos = 0;
     int tiempo_partida = 0;
     int pasos_realizados = 0;
@@ -21,7 +24,7 @@ public:
 
     Partida();
 
-    const string &getNombreJugador() const;
+    char *getNombreJugador();
 
     void setNombreJugador(const string &nombreJugador);
 
@@ -33,3 +36,5 @@ public:
 
     void setTiempoPartida(int tiempoPartida);
 };
+
+#endif //PROYECTO1ED_PARTIDA_H

@@ -126,6 +126,12 @@ build CMakeFiles/Proyecto1ED.dir/Movimiento.cpp.o: CXX_COMPILER__Proyecto1ED_Deb
   OBJECT_DIR = CMakeFiles/Proyecto1ED.dir
   OBJECT_FILE_DIR = CMakeFiles/Proyecto1ED.dir
 
+build CMakeFiles/Proyecto1ED.dir/TablaPosiciones.cpp.o: CXX_COMPILER__Proyecto1ED_Debug /home/midik/CLionProjects/Proyecto1ED/TablaPosiciones.cpp || cmake_object_order_depends_target_Proyecto1ED
+  DEP_FILE = CMakeFiles/Proyecto1ED.dir/TablaPosiciones.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/Proyecto1ED.dir
+  OBJECT_FILE_DIR = CMakeFiles/Proyecto1ED.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Proyecto1ED
@@ -134,7 +140,7 @@ build CMakeFiles/Proyecto1ED.dir/Movimiento.cpp.o: CXX_COMPILER__Proyecto1ED_Deb
 #############################################
 # Link the executable Proyecto1ED
 
-build Proyecto1ED: CXX_EXECUTABLE_LINKER__Proyecto1ED_Debug CMakeFiles/Proyecto1ED.dir/main.cpp.o CMakeFiles/Proyecto1ED.dir/lista_ortogonal.cpp.o CMakeFiles/Proyecto1ED.dir/Aleatorio.cpp.o CMakeFiles/Proyecto1ED.dir/Inicio.cpp.o CMakeFiles/Proyecto1ED.dir/Jugar.cpp.o CMakeFiles/Proyecto1ED.dir/Partida.cpp.o CMakeFiles/Proyecto1ED.dir/Preferencias.cpp.o CMakeFiles/Proyecto1ED.dir/Verificador.cpp.o CMakeFiles/Proyecto1ED.dir/Movimiento.cpp.o
+build Proyecto1ED: CXX_EXECUTABLE_LINKER__Proyecto1ED_Debug CMakeFiles/Proyecto1ED.dir/main.cpp.o CMakeFiles/Proyecto1ED.dir/lista_ortogonal.cpp.o CMakeFiles/Proyecto1ED.dir/Aleatorio.cpp.o CMakeFiles/Proyecto1ED.dir/Inicio.cpp.o CMakeFiles/Proyecto1ED.dir/Jugar.cpp.o CMakeFiles/Proyecto1ED.dir/Partida.cpp.o CMakeFiles/Proyecto1ED.dir/Preferencias.cpp.o CMakeFiles/Proyecto1ED.dir/Verificador.cpp.o CMakeFiles/Proyecto1ED.dir/Movimiento.cpp.o CMakeFiles/Proyecto1ED.dir/TablaPosiciones.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/Proyecto1ED.dir
   POST_BUILD = :

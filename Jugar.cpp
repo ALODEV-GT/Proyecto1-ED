@@ -4,13 +4,12 @@
 
 using namespace std;
 
-Partida *Jugar::iniciar() {
+void *Jugar::iniciar(TablaPosiciones *tabla) {
     auto *partida = new Partida();
     pedir_datos(partida);
     establecer_preferencias_juego(partida);
-    Preferencias *pref = partida->getPreferencias();
-    iniciar_motor_juego(partida);
-    return partida;
+    iniciar_motor_juego(partida, tabla);
+    return nullptr;
 }
 
 void Jugar::pedir_datos(Partida *partida) {
@@ -42,7 +41,7 @@ void *Jugar::establecer_preferencias_juego(Partida *partida) {
     return nullptr;
 }
 
-void Jugar::iniciar_motor_juego(Partida *partida) {
+void Jugar::iniciar_motor_juego(Partida *partida, TablaPosiciones *tabla) {
     bool ordenado = false;
     bool salir = false;
     Preferencias *preferencias = partida->getPreferencias();
@@ -115,9 +114,11 @@ void Jugar::iniciar_motor_juego(Partida *partida) {
     }
     partida->setNumPuntos(verificador->get_contador_puntos());
     partida->setPasosRealizados(mover.get_contador_pasos());
-    cout << "Pasos realizados: " << partida->getPasosRealizados();
-    cout << "Puntaje total: " << partida->getNumPuntos();
-
+    tabla->agregar(partida);
+    cout << "Pasos realizados: " << partida->getPasosRealizados() << endl;
+    cout << "Puntaje total: " << partida->getNumPuntos() << endl;
+    tabla->ordenar();
+    tabla->desplegar();
 }
 
 void Jugar::opciones_juego() {
