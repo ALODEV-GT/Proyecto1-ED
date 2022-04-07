@@ -20,16 +20,19 @@ void TablaPosiciones::agregar(Partida *partida) {
 
 void TablaPosiciones::desplegar() {
     NodoPartida *nodo = primero;
+    int contador = 1;
+    const int MAXIMO = 5;
     cout << "-------------TABLA DE POSICIONES-------------" << endl;
     printf(" %-21s %-9s %-s \n", "Nombre del jugador", "Punteo", "Tiempo de partida (s)");
-    if (nodo != NULL) {
+    if (nodo != NULL ) {
         do {
             char *nombre_jugador = nodo->valor->getNombreJugador();
             int num_puntos = nodo->valor->getNumPuntos();
             int tiempo_partida = nodo->valor->getTiempoPartida();
             printf(" %-21s %-9d %-d \n", nombre_jugador, num_puntos, tiempo_partida);
+            contador++;
             nodo = nodo->siguiente;
-        } while (nodo != NULL);
+        } while (nodo != NULL && contador <= MAXIMO);
     } else {
         cout << " Aun no hay registros" << endl;
     }
