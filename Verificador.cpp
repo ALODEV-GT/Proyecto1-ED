@@ -154,5 +154,6 @@ int Verificador::get_contador_puntos() {
 }
 
 Verificador::~Verificador() {
-
+    delete valores_iniciales;
+    delete valores_ordenados;
 }

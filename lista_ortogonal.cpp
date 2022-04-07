@@ -122,5 +122,6 @@ Nodo *lista_ortogonal::getVacio() {
 }
 
 lista_ortogonal::~lista_ortogonal() {
-
+    delete inicio;
+    delete vacio;
 }

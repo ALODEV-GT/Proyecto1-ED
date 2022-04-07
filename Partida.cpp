@@ -50,6 +50,6 @@ void Partida::setPasosRealizados(int pasosRealizados) {
 }
 
 Partida::~Partida() {
-
+    delete preferencias;
 }
 

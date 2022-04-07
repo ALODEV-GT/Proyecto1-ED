@@ -60,6 +60,6 @@ void TablaPosiciones::ordenar() {
 }
 
 TablaPosiciones::~TablaPosiciones() {
-
+    delete primero;
 }
 
